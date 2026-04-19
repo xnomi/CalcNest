@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://calcnest.dev';
+  const baseUrl = 'https://calcnest.me';
 
   const routes = [
     '',

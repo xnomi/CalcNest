@@ -7,7 +7,7 @@ export const metadata = {
   title: "CalcNest — Free Online Calculators: BMI, EMI, Age, GPA & Unit Converter",
   description: "Free online calculators for your everyday needs. Calculate BMI, loan EMI, percentages, age, convert units, and GPA instantly.",
   alternates: {
-    canonical: 'https://calcnest.dev/',
+    canonical: 'https://calcnest.me/',
   }
 };
 

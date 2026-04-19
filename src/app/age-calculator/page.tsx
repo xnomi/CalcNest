@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Age Calculator Online — Calculate Exact Age in Years, Months, Days | CalcNest',
   description: 'Calculate your exact age in years, months, and days. Discover fun facts like how many hours you have lived and days until your next birthday.',
   alternates: {
-    canonical: 'https://calcnest.dev/age-calculator',
+    canonical: 'https://calcnest.me/age-calculator',
   }
 };
 
