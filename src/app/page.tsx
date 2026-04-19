@@ -1,101 +1,121 @@
-import Image from "next/image";
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Link from 'next/link';
+import { Calculator, Percent, Calendar, RefreshCw, GraduationCap, Coins } from 'lucide-react';
+
+export const metadata = {
+  title: "CalcNest — Free Online Calculators: BMI, EMI, Age, GPA & Unit Converter",
+  description: "Free online calculators for your everyday needs. Calculate BMI, loan EMI, percentages, age, convert units, and GPA instantly.",
+  alternates: {
+    canonical: 'https://calcnest.dev/',
+  }
+};
+
+const calculators = [
+  {
+    title: 'BMI Calculator',
+    description: 'Check your Body Mass Index and healthy weight range.',
+    icon: <Calculator className="w-8 h-8 text-accent" />,
+    href: '/bmi-calculator',
+    color: 'bg-accent/10',
+  },
+  {
+    title: 'EMI Calculator',
+    description: 'Calculate loan EMI, interest, and view amortization schedule.',
+    icon: <Coins className="w-8 h-8 text-success" />,
+    href: '/emi-calculator',
+    color: 'bg-success/10',
+  },
+  {
+    title: 'Percentage Calculator',
+    description: 'Find percentages, increases, decreases, and fractions easily.',
+    icon: <Percent className="w-8 h-8 text-warning" />,
+    href: '/percentage-calculator',
+    color: 'bg-warning/10',
+  },
+  {
+    title: 'Age Calculator',
+    description: 'Calculate exact age in years, months, and days from DOB.',
+    icon: <Calendar className="w-8 h-8 text-danger" />,
+    href: '/age-calculator',
+    color: 'bg-danger/10',
+  },
+  {
+    title: 'Unit Converter',
+    description: 'Convert length, weight, temperature, area, volume, speed, data.',
+    icon: <RefreshCw className="w-8 h-8 text-accent2" />,
+    href: '/unit-converter',
+    color: 'bg-accent2/10',
+  },
+  {
+    title: 'GPA Calculator',
+    description: 'Calculate your semester and cumulative GPA on 4.0 or 5.0 scale.',
+    icon: <GraduationCap className="w-8 h-8 text-accent" />,
+    href: '/gpa-calculator',
+    color: 'bg-accent/10',
+  }
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen flex flex-col bg-bg text-text">
+      <Header />
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold text-text tracking-tight mb-6">
+            Every Calculator You Need<br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent2">
+              Free, Fast, Accurate
+            </span>
+          </h1>
+          <p className="mt-4 max-w-2xl text-xl text-muted mx-auto mb-10">
+            BMI, EMI, Percentage, Age, Unit Converter, GPA. All in one place. No ads cluttering results, instant answers, and mobile-friendly.
+          </p>
+        </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+        {/* Calculators Grid */}
+        <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {calculators.map((calc, idx) => (
+              <Link key={idx} href={calc.href} className="group block h-full">
+                <div className="bg-surface rounded-2xl p-8 border border-muted/10 shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
+                  <div className={`w-16 h-16 rounded-2xl ${calc.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                    {calc.icon}
+                  </div>
+                  <h3 className="text-2xl font-heading font-bold text-text mb-3">{calc.title}</h3>
+                  <p className="text-muted flex-grow">{calc.description}</p>
+                  <div className="mt-6 flex items-center text-accent font-semibold group-hover:gap-2 transition-all">
+                    Calculate Now <span className="ml-2">&rarr;</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* Why CalcNest */}
+        <section className="py-20 bg-surface mt-12 border-t border-muted/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-heading font-bold mb-12">Why CalcNest?</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div>
+                <h4 className="text-xl font-bold mb-2">100% Free & No Ads</h4>
+                <p className="text-muted">Enjoy a clean, distraction-free experience without annoying popups or banners.</p>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold mb-2">Instant Results</h4>
+                <p className="text-muted">No page reloads. Everything calculates instantly as you type.</p>
+              </div>
+              <div>
+                <h4 className="text-xl font-bold mb-2">Mobile Optimized</h4>
+                <p className="text-muted">Designed to work flawlessly on your phone, tablet, and desktop.</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
