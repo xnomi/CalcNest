@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
   },
   other: {
-    'google-adsense-account': process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || '',
+    'google-adsense-account': 'ca-pub-1360321193594177',
   },
 };
 
@@ -122,8 +122,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-  const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-JPV5NXQDHZ';
+  const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-1360321193594177';
 
   return (
     <html lang="en" suppressHydrationWarning>

@@ -34,7 +34,7 @@ export function AdSlot({
     }
   }, []);
 
-  const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID;
+  const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-1360321193594177';
   if (!publisherId) return null;
 
   return (
