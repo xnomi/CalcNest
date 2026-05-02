@@ -30,7 +30,8 @@ export function AdSlot({
     try {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
       pushed.current = true;
-    } catch (_e) {}
+    } catch {
+    }
   }, []);
 
   const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID;

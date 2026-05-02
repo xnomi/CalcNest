@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { AdSlot } from '@/components/AdSlot';
 import type { Metadata } from 'next';
 import {
-  Calculator,
   Percent,
   Calendar,
   RefreshCw,
@@ -16,8 +15,6 @@ import {
   Star,
   ChevronRight,
   Activity,
-  TrendingUp,
-  Lock,
 } from 'lucide-react';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://calcnest.me';
@@ -218,12 +215,6 @@ const calculators = [
   },
 ];
 
-const stats = [
-  { label: 'Monthly Users', value: '50K+', icon: TrendingUp, color: 'text-accent' },
-  { label: 'Tools Available', value: '6', icon: Calculator, color: 'text-success' },
-  { label: 'Sign-up Required', value: 'Zero', icon: Lock, color: 'text-warning' },
-  { label: 'User Rating', value: '4.8★', icon: Star, color: 'text-danger' },
-];
 
 const features = [
   {
