@@ -6,32 +6,55 @@ interface NumberInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, '
   onChange: (value: string) => void;
   suffix?: string;
   error?: string;
+  hint?: string;
 }
 
-export default function NumberInput({ label, value, onChange, suffix, error, ...props }: NumberInputProps) {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
-  };
-
+export default function NumberInput({
+  label,
+  value,
+  onChange,
+  suffix,
+  error,
+  hint,
+  ...props
+}: NumberInputProps) {
   return (
     <div className="flex flex-col mb-4">
-      <label className="text-sm font-semibold text-text mb-1">{label}</label>
+      {label && (
+        <label className="form-label">
+          {label}
+          {hint && <span className="ml-1 font-normal text-muted2 text-xs">({hint})</span>}
+        </label>
+      )}
       <div className="relative">
         <input
           type="number"
           inputMode="decimal"
           value={value}
-          onChange={handleChange}
-          className={`w-full px-4 py-3 rounded-lg border ${error ? 'border-danger focus:ring-danger' : 'border-muted/30 focus:ring-accent'} bg-surface text-text text-lg focus:outline-none focus:ring-2 focus:border-transparent transition-all`}
+          onChange={(e) => onChange(e.target.value)}
+          className={`form-input text-lg pr-14 ${
+            error
+              ? 'border-danger focus:border-danger'
+              : ''
+          }`}
+          style={{
+            background: 'var(--surface2)',
+            border: `2px solid ${error ? 'var(--danger)' : 'var(--border)'}`,
+          }}
           {...props}
         />
         {suffix && (
-          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted font-medium">
+          <span
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold pointer-events-none"
+            style={{ color: 'var(--muted)' }}
+          >
             {suffix}
           </span>
         )}
       </div>
-      {error && <span className="text-danger text-sm mt-1">{error}</span>}
+      {error && (
+        <span className="text-danger text-xs mt-1.5 font-medium">{error}</span>
+      )}
     </div>
   );
 }

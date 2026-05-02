@@ -2,26 +2,103 @@ import React from 'react';
 
 interface ResultCardProps {
   title: string;
-  value: string | React.ReactNode;
+  value: string | React.ReactNode | undefined;
   subtitle?: string;
   variant?: 'default' | 'success' | 'warning' | 'danger' | 'accent' | 'accent2';
 }
 
-export default function ResultCard({ title, value, subtitle, variant = 'default' }: ResultCardProps) {
-  const bgColors = {
-    default: 'bg-surface border-muted/20 text-text',
-    success: 'bg-[#10b981]/10 border-[#10b981]/30 text-[#10b981]',
-    warning: 'bg-[#f59e0b]/10 border-[#f59e0b]/30 text-[#f59e0b]',
-    danger: 'bg-[#ef4444]/10 border-[#ef4444]/30 text-[#ef4444]',
-    accent: 'bg-[#4f46e5]/10 border-[#4f46e5]/30 text-[#4f46e5]',
-    accent2: 'bg-[#06b6d4]/10 border-[#06b6d4]/30 text-[#06b6d4]',
-  };
+const variantStyles: Record<
+  NonNullable<ResultCardProps['variant']>,
+  { bg: string; border: string; color: string }
+> = {
+  default: {
+    bg: 'var(--surface2)',
+    border: 'var(--border)',
+    color: 'var(--text)',
+  },
+  success: {
+    bg: 'rgba(16, 185, 129, 0.08)',
+    border: 'rgba(16, 185, 129, 0.25)',
+    color: 'var(--success)',
+  },
+  warning: {
+    bg: 'rgba(245, 158, 11, 0.08)',
+    border: 'rgba(245, 158, 11, 0.25)',
+    color: 'var(--warning)',
+  },
+  danger: {
+    bg: 'rgba(239, 68, 68, 0.08)',
+    border: 'rgba(239, 68, 68, 0.25)',
+    color: 'var(--danger)',
+  },
+  accent: {
+    bg: 'rgba(79, 70, 229, 0.08)',
+    border: 'rgba(79, 70, 229, 0.25)',
+    color: 'var(--accent)',
+  },
+  accent2: {
+    bg: 'rgba(6, 182, 212, 0.08)',
+    border: 'rgba(6, 182, 212, 0.25)',
+    color: 'var(--accent2)',
+  },
+};
+
+export default function ResultCard({
+  title,
+  value,
+  subtitle,
+  variant = 'default',
+}: ResultCardProps) {
+  const styles = variantStyles[variant];
 
   return (
-    <div className={`p-6 rounded-xl border ${bgColors[variant]} flex flex-col items-center justify-center text-center transition-all`}>
-      <h3 className="text-sm font-medium opacity-80 mb-1">{title}</h3>
-      <div className="text-3xl font-heading font-bold mb-1">{value}</div>
-      {subtitle && <p className="text-sm opacity-80">{subtitle}</p>}
+    <div
+      style={{
+        background: styles.bg,
+        border: `1.5px solid ${styles.border}`,
+        borderRadius: 'var(--radius-md)',
+        padding: '1.25rem',
+        textAlign: 'center',
+        transition: 'all 0.3s ease',
+      }}
+    >
+      <p
+        style={{
+          fontSize: '0.75rem',
+          fontWeight: 600,
+          textTransform: 'uppercase',
+          letterSpacing: '0.08em',
+          color: 'var(--muted)',
+          marginBottom: '0.5rem',
+        }}
+      >
+        {title}
+      </p>
+      <div
+        style={{
+          fontSize: '1.75rem',
+          fontWeight: 900,
+          fontFamily: 'Nunito, sans-serif',
+          color: styles.color,
+          lineHeight: 1.1,
+          wordBreak: 'break-word',
+        }}
+      >
+        {value ?? '—'}
+      </div>
+      {subtitle && (
+        <p
+          style={{
+            fontSize: '0.8rem',
+            marginTop: '0.35rem',
+            color: styles.color,
+            opacity: 0.75,
+            fontWeight: 600,
+          }}
+        >
+          {subtitle}
+        </p>
+      )}
     </div>
   );
 }

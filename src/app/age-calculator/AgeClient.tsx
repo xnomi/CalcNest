@@ -72,8 +72,11 @@ export default function AgeClient() {
   return (
     <CalcLayout 
       title="Age Calculator" 
-      description="Find out exactly how old you are in years, months, and days. Discover fun facts about the time you've spent on Earth."
+      description="Enter your date of birth to find your exact age in years, months, and days. Discover fun facts: hours lived, days until next birthday, zodiac sign, and more."
       faqs={faqs}
+      breadcrumbs={[{ label: 'Age Calculator' }]}
+      adSlotTop="LEADERBOARD_TOP_SLOT"
+      adSlotBottom="RECTANGLE_BOTTOM_SLOT"
     >
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
         <div className="md:col-span-4 space-y-4">

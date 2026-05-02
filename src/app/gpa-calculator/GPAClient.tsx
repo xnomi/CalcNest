@@ -116,8 +116,11 @@ export default function GPAClient() {
   return (
     <CalcLayout 
       title="GPA Calculator" 
-      description="Calculate your semester and cumulative GPA easily. Supports both 4.0 and 5.0 scales."
+      description="Calculate your semester GPA and cumulative CGPA on a 4.0 or 5.0 scale. Add multiple courses with grades and credit hours for instant, accurate results."
       faqs={faqs}
+      breadcrumbs={[{ label: 'GPA Calculator' }]}
+      adSlotTop="LEADERBOARD_TOP_SLOT"
+      adSlotBottom="RECTANGLE_BOTTOM_SLOT"
     >
       <div className="flex flex-col md:flex-row gap-8">
         <div className="flex-grow space-y-8">

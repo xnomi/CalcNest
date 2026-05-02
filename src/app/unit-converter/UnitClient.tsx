@@ -61,8 +61,11 @@ export default function UnitClient() {
   return (
     <CalcLayout 
       title="Unit Converter" 
-      description="Convert between different units of length, weight, temperature, and more."
+      description="Convert between units of length (km, miles, feet), weight (kg, lbs), temperature (°C, °F, K), area, volume, speed, and digital data. Bidirectional and instant."
       faqs={faqs}
+      breadcrumbs={[{ label: 'Unit Converter' }]}
+      adSlotTop="LEADERBOARD_TOP_SLOT"
+      adSlotBottom="RECTANGLE_BOTTOM_SLOT"
     >
       <div className="flex overflow-x-auto border-b border-muted/20 mb-8 pb-2 gap-2 scrollbar-hide">
         {Object.keys(unitCategories).map(cat => (

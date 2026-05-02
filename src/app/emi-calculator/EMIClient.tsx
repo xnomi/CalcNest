@@ -63,9 +63,12 @@ export default function EMIClient() {
   return (
     <CalcLayout 
       title="EMI Calculator" 
-      description="Calculate your Equated Monthly Installment (EMI) for home loans, car loans, or personal loans."
+      description="Calculate your Equated Monthly Installment (EMI) for home loans, car loans, or personal loans. Get total interest, payment breakdown, and full amortization schedule."
       formula={formula}
       faqs={faqs}
+      breadcrumbs={[{ label: 'EMI Calculator' }]}
+      adSlotTop="LEADERBOARD_TOP_SLOT"
+      adSlotBottom="RECTANGLE_BOTTOM_SLOT"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8">
         <div className="lg:col-span-5 space-y-4">

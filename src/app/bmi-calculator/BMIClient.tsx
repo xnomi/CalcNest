@@ -65,9 +65,12 @@ export default function BMIClient() {
   return (
     <CalcLayout 
       title="BMI Calculator" 
-      description="Check your Body Mass Index (BMI) to find out if you're at a healthy weight. Simply enter your height and weight below."
+      description="Check your Body Mass Index (BMI) to find out if you're at a healthy weight. Enter your height and weight below — supports metric and imperial units."
       formula={formula}
       faqs={faqs}
+      breadcrumbs={[{ label: 'BMI Calculator' }]}
+      adSlotTop="LEADERBOARD_TOP_SLOT"
+      adSlotBottom="RECTANGLE_BOTTOM_SLOT"
     >
       <div className="flex justify-center mb-8">
         <div className="bg-muted/10 p-1 rounded-lg flex gap-1">

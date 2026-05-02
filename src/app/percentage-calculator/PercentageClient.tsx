@@ -54,8 +54,11 @@ export default function PercentageClient() {
   return (
     <CalcLayout 
       title="Percentage Calculator" 
-      description="Quickly calculate percentages in three different ways. No formulas to remember, just enter the numbers."
+      description="Calculate percentages three easy ways: find X% of Y, find what percentage X is of Y, or calculate the percentage change between two values."
       faqs={faqs}
+      breadcrumbs={[{ label: 'Percentage Calculator' }]}
+      adSlotTop="LEADERBOARD_TOP_SLOT"
+      adSlotBottom="RECTANGLE_BOTTOM_SLOT"
     >
       <div className="flex border-b border-muted/20 mb-8 overflow-x-auto">
         <button 

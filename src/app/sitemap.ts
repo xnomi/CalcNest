@@ -1,10 +1,9 @@
 import { MetadataRoute } from 'next';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://calcnest.me';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://calcnest.me';
 
-  const routes = [
-    '',
+export default function sitemap(): MetadataRoute.Sitemap {
+  const calculators = [
     '/bmi-calculator',
     '/emi-calculator',
     '/percentage-calculator',
@@ -13,10 +12,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/gpa-calculator',
   ];
 
-  return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: route === '' ? 1 : 0.9,
-  }));
+  const staticPages = [
+    '/about',
+    '/contact',
+    '/privacy-policy',
+    '/terms-of-service',
+  ];
+
+  const sitemap: MetadataRoute.Sitemap = [
+    {
+      url: siteUrl,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    ...calculators.map((route) => ({
+      url: `${siteUrl}${route}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    })),
+    ...staticPages.map((route) => ({
+      url: `${siteUrl}${route}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    })),
+  ];
+
+  return sitemap;
 }
