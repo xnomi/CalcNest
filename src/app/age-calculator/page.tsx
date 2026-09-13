@@ -5,9 +5,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://calcnest.me';
 const pageUrl = `${siteUrl}/age-calculator`;
 
 export const metadata: Metadata = {
-  title: 'Age Calculator Online — Calculate Your Exact Age in Years, Months & Days | CalcNest',
+  title: 'Age Calculator Online Free | Exact Age | CalcNest',
   description:
-    'Free online age calculator. Enter your date of birth to find your exact age in years, months, weeks, and days. Also shows days until your next birthday, total hours lived, and more fun life stats.',
+    'Find your exact age in years, months, and days from your date of birth. See days until your next birthday with this free online calculator.',
   keywords: [
     'age calculator',
     'age calculator online free',

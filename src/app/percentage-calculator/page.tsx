@@ -5,9 +5,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://calcnest.me';
 const pageUrl = `${siteUrl}/percentage-calculator`;
 
 export const metadata: Metadata = {
-  title: 'Percentage Calculator Online Free — 3 Easy Ways to Calculate % | CalcNest',
+  title: 'Percentage Calculator Online Free | 3 Ways | CalcNest',
   description:
-    'Free online percentage calculator. Quickly find: What is X% of Y? X is what % of Y? Percentage increase or decrease between two values. Instant results for students, teachers, and everyday math.',
+    'Calculate X% of Y, find percentage change, or discover what percent one number is of another. Free online percentage calculator with instant results.',
   keywords: [
     'percentage calculator',
     'percent calculator online free',

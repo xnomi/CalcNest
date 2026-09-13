@@ -19,6 +19,7 @@ const company = [
 const legal = [
   { name: 'Privacy Policy', href: '/privacy-policy', icon: Shield },
   { name: 'Terms of Service', href: '/terms-of-service', icon: FileText },
+  { name: 'Disclaimer', href: '/disclaimer', icon: FileText },
 ];
 
 export default function Footer() {

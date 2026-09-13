@@ -31,6 +31,15 @@ interface CalcLayoutProps {
   schema?: object;
 }
 
+const relatedTools: Record<string, { name: string; href: string }> = {
+  'BMI Calculator': { name: 'Age Calculator', href: '/age-calculator' },
+  'EMI Calculator': { name: 'Percentage Calculator', href: '/percentage-calculator' },
+  'Percentage Calculator': { name: 'GPA Calculator', href: '/gpa-calculator' },
+  'Age Calculator': { name: 'BMI Calculator', href: '/bmi-calculator' },
+  'Unit Converter': { name: 'Percentage Calculator', href: '/percentage-calculator' },
+  'GPA Calculator': { name: 'EMI Calculator', href: '/emi-calculator' },
+};
+
 export default function CalcLayout({
   title,
   description,
@@ -42,6 +51,11 @@ export default function CalcLayout({
   adSlotBottom,
   schema,
 }: CalcLayoutProps) {
+  const primaryRelatedTool = relatedTools[title];
+  const secondaryRelatedTool = title === 'BMI Calculator'
+    ? { name: 'Unit Converter', href: '/unit-converter' }
+    : { name: 'BMI Calculator', href: '/bmi-calculator' };
+
   return (
     <div className="min-h-screen flex flex-col bg-bg text-text">
       <Header />
@@ -181,6 +195,17 @@ export default function CalcLayout({
             </div>
           )}
 
+          <nav aria-label="Related calculators" className="mb-8">
+            <h2 className="text-lg font-heading font-bold text-text mb-3">Related Calculators</h2>
+            <div className="flex flex-wrap gap-3">
+              {[primaryRelatedTool, secondaryRelatedTool].map((tool) => (
+                <Link key={tool.href} href={tool.href} className="btn-secondary text-sm">
+                  {tool.name}
+                </Link>
+              ))}
+            </div>
+          </nav>
+
           {/* Back to all tools */}
           <div className="text-center mt-8 pt-6 border-t border-border">
             <p className="text-sm text-muted mb-3">Explore other free tools</p>
@@ -199,6 +224,23 @@ export default function CalcLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      )}
+
+      {faqs && faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.question,
+                acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+              })),
+            }),
+          }}
         />
       )}
 

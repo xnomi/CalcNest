@@ -1,0 +1,2 @@
+# Add your authorized Google AdSense seller record before enabling ads.
+# Format: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

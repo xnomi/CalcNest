@@ -5,9 +5,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://calcnest.me';
 const pageUrl = `${siteUrl}/unit-converter`;
 
 export const metadata: Metadata = {
-  title: 'Unit Converter Online Free — Length, Weight, Temperature, Speed & More | CalcNest',
+  title: 'Unit Converter Online Free | Length, Weight & More | CalcNest',
   description:
-    'Free online unit converter. Convert units for length (km, miles, feet), weight (kg, lbs, oz), temperature (°C, °F, K), area, volume, speed, and digital data. Instant bidirectional conversion — no sign-up needed.',
+    'Convert length, weight, temperature, area, volume, speed, and digital data units instantly. Free bidirectional converter with metric and imperial units.',
   keywords: [
     'unit converter online free',
     'length converter',

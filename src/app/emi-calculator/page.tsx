@@ -5,9 +5,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://calcnest.me';
 const pageUrl = `${siteUrl}/emi-calculator`;
 
 export const metadata: Metadata = {
-  title: 'EMI Calculator Online Free — Loan EMI, Interest & Amortization Schedule | CalcNest',
+  title: 'EMI Calculator Online Free | Loan EMI | CalcNest',
   description:
-    'Calculate your monthly EMI for home loans, car loans, and personal loans. Free online loan EMI calculator with total interest, total payment, and a full amortization schedule. Supports USD, INR, EUR, GBP, PKR.',
+    'Calculate loan EMI, total interest, and repayment for home, car, or personal loans. Get a free amortization schedule and instant results.',
   keywords: [
     'EMI calculator',
     'loan EMI calculator online',

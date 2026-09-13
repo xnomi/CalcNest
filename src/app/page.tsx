@@ -83,6 +83,15 @@ const softwareSchema = {
   screenshot: `${siteUrl}/og-image.png`,
 };
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'CalcNest',
+  url: siteUrl,
+  logo: `${siteUrl}/logo.svg`,
+  description: 'Free online calculators for health, finance, education, and everyday conversions.',
+};
+
 const faqData = [
   {
     question: 'What calculators does CalcNest offer?',
@@ -252,6 +261,7 @@ export default function Home() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div className="min-h-screen flex flex-col bg-bg text-text">

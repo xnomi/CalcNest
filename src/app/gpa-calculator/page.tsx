@@ -5,9 +5,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://calcnest.me';
 const pageUrl = `${siteUrl}/gpa-calculator`;
 
 export const metadata: Metadata = {
-  title: 'GPA Calculator Online Free — Semester & Cumulative CGPA Calculator | CalcNest',
+  title: 'GPA Calculator Online Free | GPA & CGPA | CalcNest',
   description:
-    'Free online GPA calculator for college and high school students. Calculate your semester GPA and cumulative CGPA on a 4.0 or 5.0 scale. Add multiple courses with grades and credit hours. Instant, accurate results.',
+    'Calculate semester GPA and cumulative CGPA on 4.0 or 5.0 scales. Add courses, grades, and credit hours for fast, accurate results.',
   keywords: [
     'GPA calculator',
     'GPA calculator online free',

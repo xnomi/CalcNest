@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Nunito } from 'next/font/google';
 import Script from 'next/script';
 import { CookieConsent } from '@/components/CookieConsent';
-import './globals.css';
+import '@/app/globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -97,7 +97,9 @@ export const metadata: Metadata = {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
   },
   other: {
-    'google-adsense-account': 'ca-pub-1360321193594177',
+    ...(process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID
+      ? { 'google-adsense-account': process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID }
+      : {}),
   },
 };
 
@@ -122,8 +124,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-JPV5NXQDHZ';
-  const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-1360321193594177';
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const adsenseId = process.env.NEXT_PUBLIC_ENABLE_ADS === 'true'
+    ? process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID
+    : undefined;
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -136,7 +140,6 @@ export default function RootLayout({
         {/* Preconnect for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
 
         {/* Organization Schema */}

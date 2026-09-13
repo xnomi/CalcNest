@@ -1,0 +1,17 @@
+{
+  "name": "CalcNest Online Calculators",
+  "short_name": "CalcNest",
+  "description": "Free online calculators for BMI, EMI, GPA, age, percentages, and unit conversion.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f7ff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

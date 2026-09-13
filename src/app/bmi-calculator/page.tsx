@@ -5,9 +5,9 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://calcnest.me';
 const pageUrl = `${siteUrl}/bmi-calculator`;
 
 export const metadata: Metadata = {
-  title: 'BMI Calculator Online Free — Body Mass Index Calculator | CalcNest',
+  title: 'BMI Calculator Online Free | Body Mass Index | CalcNest',
   description:
-    'Calculate your Body Mass Index (BMI) instantly with our free online BMI calculator. Supports metric (kg/cm) and imperial (lbs/ft) units. Find your healthy weight range, BMI category (underweight, normal, overweight, obese), and more.',
+    'Calculate your Body Mass Index with metric or imperial units. Check your BMI category and healthy weight range with this free calculator.',
   keywords: [
     'BMI calculator',
     'body mass index calculator',

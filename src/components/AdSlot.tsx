@@ -1,5 +1,4 @@
 'use client';
-import { useEffect, useRef } from 'react';
 
 interface AdSlotProps {
   slot: string;
@@ -22,20 +21,9 @@ export function AdSlot({
   className,
   label = 'Advertisement',
 }: AdSlotProps) {
-  const insRef = useRef<HTMLModElement>(null);
-  const pushed = useRef(false);
-
-  useEffect(() => {
-    if (pushed.current) return;
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-      pushed.current = true;
-    } catch {
-    }
-  }, []);
-
-  const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID || 'ca-pub-1360321193594177';
-  if (!publisherId) return null;
+  const adsEnabled = process.env.NEXT_PUBLIC_ENABLE_ADS === 'true';
+  const publisherId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID;
+  if (!adsEnabled || !publisherId) return null;
 
   return (
     <div
@@ -63,7 +51,6 @@ export function AdSlot({
         {label}
       </p>
       <ins
-        ref={insRef}
         className="adsbygoogle"
         style={{ display: 'block' }}
         data-ad-client={publisherId}
